@@ -7,204 +7,211 @@
   <style>
     /* General body and typography styles */
     body { 
-      font-family: 'Arial', sans-serif; /* Using Arial as a common sans-serif font */
-      background: #f5f7fa; /* Light grey background for the page */
-      color: #333; /* Default text color */
+      font-family: 'Arial', sans-serif; 
+      background: #f5f7fa; 
+      color: #333; 
       margin: 0; 
       padding: 0; 
-      line-height: 1.6; /* Improved line spacing for readability */
+      line-height: 1.6; 
     }
 
-    /* Header styling with background image */
+    /* Header styling */
     header {
-      background: url('banner.jpg') no-repeat center center; /* Banner image */
-      background-size: cover; /* Ensure banner covers the header area */
-      height: 250px; /* Fixed height for the header */
-      display: flex; /* Using flexbox for centering content */
-      align-items: center; /* Vertical alignment */
-      justify-content: center; /* Horizontal alignment */
+      background: url('banner.jpg') no-repeat center center; 
+      background-size: cover; 
+      height: 250px; 
+      display: flex; 
+      align-items: center; 
+      justify-content: center; 
       text-align: center;
-      color: white; /* Text color for header content */
+      color: white; 
     }
-
-    /* Styling for the content overlay on the header image */
     .header-content {
-        background: rgba(0, 0, 0, 0.6); /* Semi-transparent black overlay for text readability */
-        padding: 25px 35px; /* Padding around the header text */
-        border-radius: 10px; /* Rounded corners for the overlay */
-        box-shadow: 0 4px 8px rgba(0,0,0,0.3); /* Subtle shadow for depth */
+        background: rgba(0, 0, 0, 0.6); 
+        padding: 25px 35px; 
+        border-radius: 10px; 
+        box-shadow: 0 4px 8px rgba(0,0,0,0.3); 
     }
-
-    .header-content h1 {
-        margin: 0;
-        font-size: 2.8em; /* Larger font size for the name */
-        font-weight: bold;
-    }
-
-    .header-content p {
-        margin: 8px 0 0;
-        font-size: 1.3em; /* Font size for the job title/tagline */
-    }
+    .header-content h1 { margin: 0; font-size: 2.8em; font-weight: bold; }
+    .header-content p { margin: 8px 0 0; font-size: 1.3em; }
 
     /* Main content area styling */
     main { 
       padding: 25px; 
-      max-width: 1000px; /* Maximum width of the content */
-      margin: 30px auto; /* Centering the content with margin */
-      background: white; /* White background for the main content */
-      box-shadow: 0 2px 15px rgba(0,0,0,0.1); /* Soft shadow for the main content block */
-      border-radius: 8px; /* Rounded corners for the main content block */
+      max-width: 1000px; 
+      margin: 30px auto; 
+      background: white; 
+      box-shadow: 0 2px 15px rgba(0,0,0,0.1); 
+      border-radius: 8px; 
     }
 
-    /* Styling for section headings (h2) */
+    /* Section headings (h2) */
     h2 { 
-      color: #1a73e8; /* Blue color for headings */
-      border-bottom: 3px solid #1a73e8; /* Bottom border for headings */
-      padding-bottom: 8px; /* Space below the heading text */
-      margin-top: 0; /* Remove default top margin */
-      margin-bottom: 20px; /* Space below the heading */
-      font-size: 1.8em; /* Font size for section titles */
-    }
-
-    /* Styling for sub-headings (h3) - not used in current structure but good to have */
-    h3 { 
       color: #1a73e8; 
-      font-size: 1.4em;
-      margin-bottom: 10px;
+      border-bottom: 3px solid #1a73e8; 
+      padding-bottom: 8px; 
+      margin-top: 0; 
+      margin-bottom: 20px; 
+      font-size: 1.8em; 
     }
-
+    
     /* General section styling */
-    section { 
-      margin-bottom: 35px; /* Space below each section */
-    }
+    section { margin-bottom: 35px; }
 
-    /* Unordered list styling */
+    /* Unordered list styling (for projects, etc.) */
     ul { 
-      padding-left: 25px; /* Indentation for lists */
-      list-style: disc; /* Default bullet style */
-      margin-bottom: 15px; /* Space below lists */
+      padding-left: 0; 
+      list-style: none; 
+      margin-bottom: 15px; 
     }
     ul li {
-      margin-bottom: 8px; /* Space between list items */
+      margin-bottom: 10px; 
+      display: flex; 
+      align-items: flex-start; 
+    }
+     ul li::before { 
+      content: '•';
+      color: #1a73e8;
+      font-weight: bold;
+      display: inline-block; 
+      width: 1em;
+      margin-left: -1em; 
+      margin-right: 0.5em; 
     }
 
-    /* Contact section link styling */
-    .contact a { 
-      color: #1a73e8; 
-      text-decoration: none; /* Remove underline from links */
-    }
-    .contact a:hover { 
-      text-decoration: underline; /* Add underline on hover */
-    }
-    .contact p {
-        margin: 8px 0; /* Spacing for contact paragraphs */
-    }
+    /* Contact section */
+    .contact a { color: #1a73e8; text-decoration: none; }
+    .contact a:hover { text-decoration: underline; }
+    .contact p { margin: 8px 0; }
 
-    /* Styling for individual job entries */
+    /* Work Experience section styling */
     .job { 
-      margin-bottom: 25px; /* Space below each job entry */
-      padding-bottom: 15px; /* Padding at the bottom of a job entry */
-      border-bottom: 1px solid #e0e0e0; /* Separator line between jobs */
+      margin-bottom: 25px; 
+      padding-bottom: 15px; 
+      border-bottom: 1px solid #e0e0e0; 
     }
-    .job:last-child {
-        border-bottom: none; /* Remove border for the last job entry */
-    }
+    .job:last-child { border-bottom: none; }
 
-    /* Container for job title and expand button */
     .job-title-container {
-        display: flex; /* Using flex to align title and button */
-        justify-content: space-between; /* Puts space between title and button */
-        align-items: center; /* Vertically aligns items in the middle */
+        display: flex; 
+        justify-content: space-between; 
+        align-items: center; 
         margin-bottom: 5px;
     }
-
-    .job-title {
+    .job-title-text { /* Span to hold the job title itself */
         font-weight: bold;
-        font-size: 1.2em; /* Font size for job titles */
-        color: #333; /* Darker color for job titles */
+        font-size: 1.2em; 
+        color: #333; 
+        flex-grow: 1; /* Allows title to take space */
     }
-
     .job-company-date {
         font-style: italic;
-        color: #555; /* Grey color for company and date */
-        margin-bottom: 12px; /* Space below company/date */
+        color: #555; 
+        margin-bottom: 12px; 
         font-size: 1em;
     }
-
-    /* Styling for the details within each job (collapsible part) */
     .job-details {
-        padding-left: 20px; /* Indentation for job details */
-        border-left: 3px solid #1a73e8; /* Blue left border for emphasis */
+        padding-left: 20px; 
+        border-left: 3px solid #1a73e8; 
         margin-top: 10px;
-        background-color: #f9f9f9; /* Slight background tint for details */
-        padding-top: 10px;
-        padding-bottom: 10px;
-        border-radius: 0 5px 5px 0; /* Rounded corners on the right side */
+        background-color: #f9f9f9; 
+        padding: 15px; 
+        border-radius: 0 5px 5px 0; 
     }
-    .job-details ul {
-        margin-bottom: 0; /* Remove bottom margin from ul inside details */
-    }
-
+    .job-details ul li::before { content: '›'; color: #555; }
 
     /* Expand/Collapse button styling */
     .expand-button {
-        background-color: #1a73e8; /* Blue background */
-        color: white; /* White text */
+        background-color: #1a73e8; 
+        color: white; 
         border: none;
-        padding: 6px 12px; /* Padding for the button */
+        padding: 6px 12px; 
         text-align: center;
-        text-decoration: none;
-        display: inline-block;
         font-size: 0.9em;
-        cursor: pointer; /* Pointer cursor on hover */
-        border-radius: 5px; /* Rounded corners for the button */
-        transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+        cursor: pointer; 
+        border-radius: 5px; 
+        transition: background-color 0.3s ease; 
+        margin-left: 10px; /* Space from company description button or title */
     }
-    .expand-button:hover {
-        background-color: #155cb0; /* Darker blue on hover */
-    }
+    .expand-button:hover { background-color: #155cb0; }
 
-    /* Styling for collapsible content */
-    .collapsible-content {
-        display: none; /* Hidden by default */
-        padding-top: 10px;
-        overflow: hidden; /* Ensures smooth animation if transitions are added */
-    }
-    .collapsible-content.active {
-        display: block; /* Shown when active */
-    }
+    /* Collapsible content */
+    .collapsible-content { display: none; padding-top: 10px; overflow: hidden; }
+    .collapsible-content.active { display: block; }
 
-    /* Multi-column layout for skills section */
+    /* Skills section (buttons removed, so specific styling might not be needed for buttons) */
     .skills ul { 
       columns: 2; 
-      -webkit-columns: 2; /* Safari and Chrome */
-      -moz-columns: 2;    /* Firefox */
-      column-gap: 40px;   /* Space between columns */
+      -webkit-columns: 2; 
+      -moz-columns: 2;    
+      column-gap: 40px;   
+      padding-left: 1em; 
     }
-    @media (max-width: 600px) { /* Single column for skills on smaller screens */
-        .skills ul {
-            columns: 1;
-            -webkit-columns: 1;
-            -moz-columns: 1;
-        }
+    @media (max-width: 768px) { 
+        .skills ul { columns: 1; -webkit-columns: 1; -moz-columns: 1; }
     }
-
-
-    /* Styling for project list items */
-    .projects ul li { 
-      margin-bottom: 12px; /* Space below each project item */
-    }
+    
+    /* Projects section list styling */
+    .projects ul { padding-left: 1em; }
+    .projects ul li { align-items: center; }
 
     /* Footer styling */
     footer { 
       text-align: center; 
       padding: 25px; 
-      background: #e9ecef; /* Light grey background for footer */
+      background: #e9ecef; 
       font-size: 0.95em; 
-      color: #6c757d; /* Muted text color for footer */
-      margin-top: 40px; /* Space above the footer */
-      border-top: 1px solid #dee2e6; /* Top border for the footer */
+      color: #6c757d; 
+      margin-top: 40px; 
+      border-top: 1px solid #dee2e6; 
     }
+
+    /* Describe Button Styling (for projects and companies) */
+    .describe-btn {
+        background-color: #ffc107; 
+        color: #333;
+        border: none;
+        padding: 4px 8px;
+        font-size: 0.8em;
+        border-radius: 4px;
+        cursor: pointer;
+        margin-left: 10px; 
+        transition: background-color 0.3s ease;
+        white-space: nowrap; 
+    }
+    .describe-btn:hover { background-color: #e0a800; }
+    .list-item-text { flex-grow: 1; } /* For project list items */
+
+    /* Modal Styling */
+    .modal {
+        display: none; position: fixed; z-index: 1000; 
+        left: 0; top: 0; width: 100%; height: 100%; 
+        overflow: auto; background-color: rgba(0,0,0,0.5); 
+    }
+    .modal-content {
+        background-color: #fefefe; margin: 10% auto; padding: 25px;
+        border: 1px solid #888; width: 80%; max-width: 600px; 
+        border-radius: 8px; box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        position: relative;
+    }
+    .modal-header {
+        padding-bottom: 10px; border-bottom: 1px solid #eee; margin-bottom: 15px;
+        display: flex; justify-content: space-between; align-items: center;
+    }
+    .modal-header h3 { margin: 0; color: #1a73e8; }
+    .close-button {
+        color: #aaa; font-size: 28px; font-weight: bold; cursor: pointer;
+        background: none; border: none;
+    }
+    .close-button:hover, .close-button:focus { color: black; text-decoration: none; }
+    .modal-body { min-height: 100px; max-height: 400px; overflow-y: auto; }
+    .modal-body p { margin-top: 0; }
+    .loading-spinner {
+        border: 4px solid #f3f3f3; border-top: 4px solid #1a73e8; 
+        border-radius: 50%; width: 30px; height: 30px;
+        animation: spin 1s linear infinite; margin: 20px auto; 
+    }
+    @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
   </style>
 </head>
 <body>
@@ -232,11 +239,11 @@
     <section class="skills">
       <h2>Key Skills</h2>
       <ul>
-        <li>📁 Document & Information Management: Aconex, OpenText, Unifier, Coreworx, Autodesk Vault</li>
-        <li>🧩 EDMS & Compliance: ISO Standards, Document Lifecycle, Audit Readiness, Metadata Management</li>
-        <li>📊 Procurement & Commercial: SAP, Ariba, RFP/RFI, Vendor Negotiation</li>
-        <li>⚙️ Process Improvement & Strategy: Automation, Digital Transformation, KPI Dashboards</li>
-        <li>👥 Leadership & Communication: Stakeholder Management, Team Mentoring, UAT & Training</li>
+        <li><span class="list-item-text">📁 Document & Information Management: Aconex, OpenText, Unifier, Coreworx, Autodesk Vault</span></li>
+        <li><span class="list-item-text">🧩 EDMS & Compliance: ISO Standards, Document Lifecycle, Audit Readiness, Metadata Management</span></li>
+        <li><span class="list-item-text">📊 Procurement & Commercial: SAP, Ariba, RFP/RFI, Vendor Negotiation</span></li>
+        <li><span class="list-item-text">⚙️ Process Improvement & Strategy: Automation, Digital Transformation, KPI Dashboards</span></li>
+        <li><span class="list-item-text">👥 Leadership & Communication: Stakeholder Management, Team Mentoring, UAT & Training</span></li>
       </ul>
     </section>
 
@@ -245,8 +252,10 @@
       
       <div class="job">
         <div class="job-title-container">
-            <span class="job-title">Sr. Document Controller</span>
-            <button class="expand-button" onclick="toggleExperience(this)" aria-expanded="false" aria-controls="job1-details">Expand</button>
+            <span class="job-title-text">Sr. Document Controller</span>
+            <div> <button class="describe-btn" onclick="describeItem(this, 'company', 'Prodair Airproducts')">Describe Company 🏢</button>
+                <button class="expand-button" onclick="toggleExperience(this)" aria-expanded="false" aria-controls="job1-details">Expand</button>
+            </div>
         </div>
         <p class="job-company-date">Prodair Airproducts, Pune & Vadodara | Dec 2022 – Present</p>
         <div class="collapsible-content job-details" id="job1-details">
@@ -275,8 +284,11 @@
 
       <div class="job">
          <div class="job-title-container">
-            <span class="job-title">Procurement Manager</span>
-            <button class="expand-button" onclick="toggleExperience(this)" aria-expanded="false" aria-controls="job2-details">Expand</button>
+            <span class="job-title-text">Procurement Manager</span>
+            <div>
+                <button class="describe-btn" onclick="describeItem(this, 'company', 'Hands On Trades Private Limited (BlinkIt)')">Describe Company 🏢</button>
+                <button class="expand-button" onclick="toggleExperience(this)" aria-expanded="false" aria-controls="job2-details">Expand</button>
+            </div>
         </div>
         <p class="job-company-date">Hands On Trades Private Limited (BlinkIt), Gurgaon | Dec 2021 – Jul 2022</p>
         <div class="collapsible-content job-details" id="job2-details">
@@ -291,8 +303,11 @@
 
       <div class="job">
         <div class="job-title-container">
-            <span class="job-title">Deputy Manager (Techno-Commercial)</span>
-            <button class="expand-button" onclick="toggleExperience(this)" aria-expanded="false" aria-controls="job3-details">Expand</button>
+            <span class="job-title-text">Deputy Manager (Techno-Commercial)</span>
+            <div>
+                <button class="describe-btn" onclick="describeItem(this, 'company', 'Adani Green Energy Ltd.')">Describe Company 🏢</button>
+                <button class="expand-button" onclick="toggleExperience(this)" aria-expanded="false" aria-controls="job3-details">Expand</button>
+            </div>
         </div>
         <p class="job-company-date">Adani Green Energy Ltd., Ahmedabad | Oct 2021 – Dec 2021</p>
         <div class="collapsible-content job-details" id="job3-details">
@@ -306,8 +321,11 @@
 
       <div class="job">
         <div class="job-title-container">
-            <span class="job-title">Supply Chain Coordinator & Procurement Executive</span>
-            <button class="expand-button" onclick="toggleExperience(this)" aria-expanded="false" aria-controls="job4-details">Expand</button>
+            <span class="job-title-text">Supply Chain Coordinator & Procurement Executive</span>
+            <div>
+                <button class="describe-btn" onclick="describeItem(this, 'company', 'SB Energy Pvt. Ltd.')">Describe Company 🏢</button>
+                <button class="expand-button" onclick="toggleExperience(this)" aria-expanded="false" aria-controls="job4-details">Expand</button>
+            </div>
         </div>
         <p class="job-company-date">SB Energy Pvt. Ltd., Delhi | Oct 2017 – Oct 2021</p>
         <div class="collapsible-content job-details" id="job4-details">
@@ -322,8 +340,11 @@
 
       <div class="job">
         <div class="job-title-container">
-            <span class="job-title">Senior Document Controller</span>
-            <button class="expand-button" onclick="toggleExperience(this)" aria-expanded="false" aria-controls="job5-details">Expand</button>
+            <span class="job-title-text">Senior Document Controller</span>
+            <div>
+                <button class="describe-btn" onclick="describeItem(this, 'company', 'Fluor Daniel India Pvt. Ltd.')">Describe Company 🏢</button>
+                <button class="expand-button" onclick="toggleExperience(this)" aria-expanded="false" aria-controls="job5-details">Expand</button>
+            </div>
         </div>
         <p class="job-company-date">Fluor Daniel India Pvt. Ltd., Gurugram | Aug 2011 – Sep 2017</p>
         <div class="collapsible-content job-details" id="job5-details">
@@ -338,8 +359,11 @@
 
       <div class="job">
         <div class="job-title-container">
-            <span class="job-title">Document Controller</span>
-            <button class="expand-button" onclick="toggleExperience(this)" aria-expanded="false" aria-controls="job6-details">Expand</button>
+            <span class="job-title-text">Document Controller</span>
+            <div>
+                <button class="describe-btn" onclick="describeItem(this, 'company', 'Alstom Projects India Ltd.')">Describe Company 🏢</button>
+                <button class="expand-button" onclick="toggleExperience(this)" aria-expanded="false" aria-controls="job6-details">Expand</button>
+            </div>
         </div>
         <p class="job-company-date">Alstom Projects India Ltd., Noida | Apr 2008 – Jul 2011</p>
         <div class="collapsible-content job-details" id="job6-details">
@@ -355,13 +379,13 @@
     <section class="projects">
       <h2>Key Projects</h2>
       <ul>
-        <li>✅ NEOM, Saudi Arabia – Led document control for a futuristic city development, ensuring compliance with international standards.</li>
-        <li>✅ Blinkit Store Operations (Delhi NCR) – Managed digital documentation for store operations, procurement, and compliance.</li>
-        <li>✅ Adani Green – Site Transportation & Fuel Management – Developed a document management system for fuel usage and vehicle logs.</li>
-        <li>✅ AP350 (350MW Solar Plant) – Implemented document workflows for vendor contracts, ensuring seamless approvals.</li>
-        <li>✅ Reliance Gasification (J3 Refinery Expansion) – Oversaw documentation compliance for a $10B refinery expansion.</li>
-        <li>✅ NTPC600 (600MW Solar Plant) – Established compliance tracking, ensuring 100% regulatory adherence.</li>
-        <li>✅ Kearl Oil Sands Expansion – Developed ISO-compliant document control systems for an oil sands project.</li>
+        <li><span class="list-item-text">✅ NEOM, Saudi Arabia – Led document control for a futuristic city development, ensuring compliance with international standards.</span><button class="describe-btn" onclick="describeItem(this, 'project', 'NEOM, Saudi Arabia')">Describe Project 🔎</button></li>
+        <li><span class="list-item-text">✅ Blinkit Store Operations (Delhi NCR) – Managed digital documentation for store operations, procurement, and compliance.</span><button class="describe-btn" onclick="describeItem(this, 'project', 'Blinkit Store Operations (Delhi NCR)')">Describe Project 🔎</button></li>
+        <li><span class="list-item-text">✅ Adani Green – Site Transportation & Fuel Management – Developed a document management system for fuel usage and vehicle logs.</span><button class="describe-btn" onclick="describeItem(this, 'project', 'Adani Green – Site Transportation & Fuel Management')">Describe Project 🔎</button></li>
+        <li><span class="list-item-text">✅ AP350 (350MW Solar Plant) – Implemented document workflows for vendor contracts, ensuring seamless approvals.</span><button class="describe-btn" onclick="describeItem(this, 'project', 'AP350 (350MW Solar Plant)')">Describe Project 🔎</button></li>
+        <li><span class="list-item-text">✅ Reliance Gasification (J3 Refinery Expansion) – Oversaw documentation compliance for a $10B refinery expansion.</span><button class="describe-btn" onclick="describeItem(this, 'project', 'Reliance Gasification (J3 Refinery Expansion)')">Describe Project 🔎</button></li>
+        <li><span class="list-item-text">✅ NTPC600 (600MW Solar Plant) – Established compliance tracking, ensuring 100% regulatory adherence.</span><button class="describe-btn" onclick="describeItem(this, 'project', 'NTPC600 (600MW Solar Plant)')">Describe Project 🔎</button></li>
+        <li><span class="list-item-text">✅ Kearl Oil Sands Expansion – Developed ISO-compliant document control systems for an oil sands project.</span><button class="describe-btn" onclick="describeItem(this, 'project', 'Kearl Oil Sands Expansion')">Describe Project 🔎</button></li>
       </ul>
     </section>
 
@@ -375,13 +399,23 @@
     &copy; <span id="currentYear"></span> Deepesh Arya. All rights reserved.
   </footer>
 
+  <div id="descriptionModal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>🔎 Description</h3>
+        <button class="close-button" onclick="closeModal()">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div id="loadingSpinner" class="loading-spinner" style="display: none;"></div>
+        <p id="descriptionResult"></p>
+      </div>
+    </div>
+  </div>
+
   <script>
-    // Function to toggle the display of job details
     function toggleExperience(button) {
-      // Find the collapsible content div, which is the next sibling of the button's parent container
       const content = button.closest('.job').querySelector('.collapsible-content');
       const isExpanded = button.getAttribute('aria-expanded') === 'true';
-
       if (isExpanded) {
         content.style.display = "none";
         button.textContent = "Expand";
@@ -395,8 +429,95 @@
       }
     }
 
-    // Set the current year in the footer
     document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+    const modal = document.getElementById('descriptionModal');
+    const descriptionResultP = document.getElementById('descriptionResult');
+    const loadingSpinner = document.getElementById('loadingSpinner');
+
+    function openModal() {
+      modal.style.display = "block";
+    }
+
+    function closeModal() {
+      modal.style.display = "none";
+      descriptionResultP.innerHTML = ''; 
+      loadingSpinner.style.display = 'none';
+    }
+
+    window.onclick = function(event) {
+      if (event.target == modal) {
+        closeModal();
+      }
+    }
+
+    async function describeItem(buttonElement, itemType, itemName) {
+      // For projects, if itemName is not directly passed, get it from the previous sibling
+      let itemToDescribe = itemName;
+      if (itemType === 'project' && !itemName) {
+          const listItemTextElement = buttonElement.previousElementSibling;
+          if (listItemTextElement && listItemTextElement.classList.contains('list-item-text')) {
+              itemToDescribe = listItemTextElement.textContent.trim().replace(/^✅\s*/, ''); // Remove checkmark if present
+          }
+      }
+      
+      if (!itemToDescribe) {
+        descriptionResultP.textContent = "No item name found to describe.";
+        openModal();
+        return;
+      }
+
+      descriptionResultP.textContent = ''; 
+      loadingSpinner.style.display = 'block'; 
+      openModal();
+
+      let promptText = "";
+      if (itemType === 'project') {
+        promptText = `Please provide a brief description of the following project: "${itemToDescribe}". Include its main objectives and significance if possible.`;
+      } else if (itemType === 'company') {
+        promptText = `Please provide a brief overview of the company: "${itemToDescribe}". Include its industry and what it's known for, if possible.`;
+      } else {
+        descriptionResultP.textContent = "Invalid item type.";
+        loadingSpinner.style.display = 'none';
+        return;
+      }
+      
+      let chatHistory = [{ role: "user", parts: [{ text: promptText }] }];
+      const payload = { contents: chatHistory };
+      const apiKey = ""; 
+      const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
+
+      try {
+        const response = await fetch(apiUrl, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+
+        if (!response.ok) {
+          const errorData = await response.json();
+          console.error("API Error:", errorData);
+          throw new Error(`API request failed with status ${response.status}: ${errorData?.error?.message || response.statusText}`);
+        }
+
+        const result = await response.json();
+        loadingSpinner.style.display = 'none'; 
+
+        if (result.candidates && result.candidates.length > 0 &&
+            result.candidates[0].content && result.candidates[0].content.parts &&
+            result.candidates[0].content.parts.length > 0) {
+          const generatedText = result.candidates[0].content.parts[0].text;
+          descriptionResultP.innerHTML = generatedText.replace(/\n/g, '<br>');
+        } else {
+          descriptionResultP.textContent = "Sorry, I couldn't generate a description for this item. The response from the AI was not in the expected format.";
+          console.error("Unexpected API response structure:", result);
+        }
+      } catch (error) {
+        loadingSpinner.style.display = 'none'; 
+        console.error('Error calling Gemini API:', error);
+        descriptionResultP.textContent = "An error occurred while trying to get a description: " + error.message;
+      }
+    }
   </script>
 </body>
 </html>
