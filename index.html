@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,83 +5,398 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Deepesh Arya | Resume</title>
   <style>
-    body { font-family: Arial, sans-serif; background: #f5f7fa; color: #333; margin: 0; padding: 0; }
-    header {
-      background: url('banner.jpg') no-repeat center center;
-      background-size: cover;
-      height: 250px;
+    /* General body and typography styles */
+    body { 
+      font-family: 'Arial', sans-serif; /* Using Arial as a common sans-serif font */
+      background: #f5f7fa; /* Light grey background for the page */
+      color: #333; /* Default text color */
+      margin: 0; 
+      padding: 0; 
+      line-height: 1.6; /* Improved line spacing for readability */
     }
-    main { padding: 20px; max-width: 1000px; margin: auto; background: white; }
-    h2, h3 { color: #1a73e8; }
-    section { margin-bottom: 30px; }
-    ul { padding-left: 20px; }
-    .contact a { color: #1a73e8; text-decoration: none; }
-    .job-title { font-weight: bold; }
-    footer { text-align: center; padding: 20px; background: #f0f0f0; font-size: 0.9em; }
+
+    /* Header styling with background image */
+    header {
+      background: url('banner.jpg') no-repeat center center; /* Banner image */
+      background-size: cover; /* Ensure banner covers the header area */
+      height: 250px; /* Fixed height for the header */
+      display: flex; /* Using flexbox for centering content */
+      align-items: center; /* Vertical alignment */
+      justify-content: center; /* Horizontal alignment */
+      text-align: center;
+      color: white; /* Text color for header content */
+    }
+
+    /* Styling for the content overlay on the header image */
+    .header-content {
+        background: rgba(0, 0, 0, 0.6); /* Semi-transparent black overlay for text readability */
+        padding: 25px 35px; /* Padding around the header text */
+        border-radius: 10px; /* Rounded corners for the overlay */
+        box-shadow: 0 4px 8px rgba(0,0,0,0.3); /* Subtle shadow for depth */
+    }
+
+    .header-content h1 {
+        margin: 0;
+        font-size: 2.8em; /* Larger font size for the name */
+        font-weight: bold;
+    }
+
+    .header-content p {
+        margin: 8px 0 0;
+        font-size: 1.3em; /* Font size for the job title/tagline */
+    }
+
+    /* Main content area styling */
+    main { 
+      padding: 25px; 
+      max-width: 1000px; /* Maximum width of the content */
+      margin: 30px auto; /* Centering the content with margin */
+      background: white; /* White background for the main content */
+      box-shadow: 0 2px 15px rgba(0,0,0,0.1); /* Soft shadow for the main content block */
+      border-radius: 8px; /* Rounded corners for the main content block */
+    }
+
+    /* Styling for section headings (h2) */
+    h2 { 
+      color: #1a73e8; /* Blue color for headings */
+      border-bottom: 3px solid #1a73e8; /* Bottom border for headings */
+      padding-bottom: 8px; /* Space below the heading text */
+      margin-top: 0; /* Remove default top margin */
+      margin-bottom: 20px; /* Space below the heading */
+      font-size: 1.8em; /* Font size for section titles */
+    }
+
+    /* Styling for sub-headings (h3) - not used in current structure but good to have */
+    h3 { 
+      color: #1a73e8; 
+      font-size: 1.4em;
+      margin-bottom: 10px;
+    }
+
+    /* General section styling */
+    section { 
+      margin-bottom: 35px; /* Space below each section */
+    }
+
+    /* Unordered list styling */
+    ul { 
+      padding-left: 25px; /* Indentation for lists */
+      list-style: disc; /* Default bullet style */
+      margin-bottom: 15px; /* Space below lists */
+    }
+    ul li {
+      margin-bottom: 8px; /* Space between list items */
+    }
+
+    /* Contact section link styling */
+    .contact a { 
+      color: #1a73e8; 
+      text-decoration: none; /* Remove underline from links */
+    }
+    .contact a:hover { 
+      text-decoration: underline; /* Add underline on hover */
+    }
+    .contact p {
+        margin: 8px 0; /* Spacing for contact paragraphs */
+    }
+
+    /* Styling for individual job entries */
+    .job { 
+      margin-bottom: 25px; /* Space below each job entry */
+      padding-bottom: 15px; /* Padding at the bottom of a job entry */
+      border-bottom: 1px solid #e0e0e0; /* Separator line between jobs */
+    }
+    .job:last-child {
+        border-bottom: none; /* Remove border for the last job entry */
+    }
+
+    /* Container for job title and expand button */
+    .job-title-container {
+        display: flex; /* Using flex to align title and button */
+        justify-content: space-between; /* Puts space between title and button */
+        align-items: center; /* Vertically aligns items in the middle */
+        margin-bottom: 5px;
+    }
+
+    .job-title {
+        font-weight: bold;
+        font-size: 1.2em; /* Font size for job titles */
+        color: #333; /* Darker color for job titles */
+    }
+
+    .job-company-date {
+        font-style: italic;
+        color: #555; /* Grey color for company and date */
+        margin-bottom: 12px; /* Space below company/date */
+        font-size: 1em;
+    }
+
+    /* Styling for the details within each job (collapsible part) */
+    .job-details {
+        padding-left: 20px; /* Indentation for job details */
+        border-left: 3px solid #1a73e8; /* Blue left border for emphasis */
+        margin-top: 10px;
+        background-color: #f9f9f9; /* Slight background tint for details */
+        padding-top: 10px;
+        padding-bottom: 10px;
+        border-radius: 0 5px 5px 0; /* Rounded corners on the right side */
+    }
+    .job-details ul {
+        margin-bottom: 0; /* Remove bottom margin from ul inside details */
+    }
+
+
+    /* Expand/Collapse button styling */
+    .expand-button {
+        background-color: #1a73e8; /* Blue background */
+        color: white; /* White text */
+        border: none;
+        padding: 6px 12px; /* Padding for the button */
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 0.9em;
+        cursor: pointer; /* Pointer cursor on hover */
+        border-radius: 5px; /* Rounded corners for the button */
+        transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+    }
+    .expand-button:hover {
+        background-color: #155cb0; /* Darker blue on hover */
+    }
+
+    /* Styling for collapsible content */
+    .collapsible-content {
+        display: none; /* Hidden by default */
+        padding-top: 10px;
+        overflow: hidden; /* Ensures smooth animation if transitions are added */
+    }
+    .collapsible-content.active {
+        display: block; /* Shown when active */
+    }
+
+    /* Multi-column layout for skills section */
+    .skills ul { 
+      columns: 2; 
+      -webkit-columns: 2; /* Safari and Chrome */
+      -moz-columns: 2;    /* Firefox */
+      column-gap: 40px;   /* Space between columns */
+    }
+    @media (max-width: 600px) { /* Single column for skills on smaller screens */
+        .skills ul {
+            columns: 1;
+            -webkit-columns: 1;
+            -moz-columns: 1;
+        }
+    }
+
+
+    /* Styling for project list items */
+    .projects ul li { 
+      margin-bottom: 12px; /* Space below each project item */
+    }
+
+    /* Footer styling */
+    footer { 
+      text-align: center; 
+      padding: 25px; 
+      background: #e9ecef; /* Light grey background for footer */
+      font-size: 0.95em; 
+      color: #6c757d; /* Muted text color for footer */
+      margin-top: 40px; /* Space above the footer */
+      border-top: 1px solid #dee2e6; /* Top border for the footer */
+    }
   </style>
 </head>
 <body>
-  <header></header>
+  <header>
+    <div class="header-content">
+        <h1>Deepesh Arya</h1>
+        <p>Document Control Manager | Information Management Specialist</p>
+    </div>
+  </header>
+
   <main>
     <section class="contact">
-      <h2>Contact</h2>
-      <p>📍 Ghaziabad, India | 📞 +91-9873-540166 | ✉ deepesharya@hotmail.com</p>
-      <p>🔗 <a href="https://linkedin.com/in/deepesh-arya-69902419/" target="_blank">LinkedIn Profile</a></p>
+      <h2>Contact Information</h2>
+      <p>📍 Ghaziabad, India</p>
+      <p>📞 <a href="tel:+919873540166">+91-9873-540166</a></p>
+      <p>✉ <a href="mailto:deepesharya@hotmail.com">deepesharya@hotmail.com</a></p>
+      <p>🔗 <a href="https://linkedin.com/in/deepesh-arya-69902419/" target="_blank" rel="noopener noreferrer">linkedin.com/in/deepesh-arya-69902419/</a></p>
     </section>
 
     <section class="summary">
       <h2>Professional Summary</h2>
-      <p>Strategic Document Control & Information Management professional with 17+ years of experience managing enterprise documentation systems across global infrastructure, energy, and procurement projects. Skilled in tools like OpenText, Aconex, Unifier, SAP, and Ariba, with proven leadership in UAT, compliance, and global process improvement.</p>
+      <p>Strategic Document Control & Information Management professional with 17+ years of experience leading enterprise-level documentation and compliance initiatives across energy, infrastructure, and technology sectors. Proven track record managing global EDMS platforms (Aconex, OpenText, Unifier), driving standardization, audit readiness, and process optimization across multi-billion-dollar projects. Skilled in cross-functional leadership, digital transformation, and KPI-based performance management.</p>
     </section>
 
     <section class="skills">
       <h2>Key Skills</h2>
       <ul>
-        <li>Document & Information Management: OpenText, Aconex, Unifier, Coreworx, Autodesk Vault</li>
-        <li>EDMS & Compliance: ISO Standards, Document Lifecycle, Audit Readiness</li>
-        <li>Procurement & Commercial: SAP, Ariba, RFP/RFI, Vendor Negotiation</li>
-        <li>Process Improvement, Digital Transformation, KPI Tracking</li>
-        <li>Team Leadership, UAT Testing, Cross-functional Collaboration</li>
+        <li>📁 Document & Information Management: Aconex, OpenText, Unifier, Coreworx, Autodesk Vault</li>
+        <li>🧩 EDMS & Compliance: ISO Standards, Document Lifecycle, Audit Readiness, Metadata Management</li>
+        <li>📊 Procurement & Commercial: SAP, Ariba, RFP/RFI, Vendor Negotiation</li>
+        <li>⚙️ Process Improvement & Strategy: Automation, Digital Transformation, KPI Dashboards</li>
+        <li>👥 Leadership & Communication: Stakeholder Management, Team Mentoring, UAT & Training</li>
       </ul>
     </section>
 
     <section class="experience">
       <h2>Work Experience</h2>
-      <p class="job-title">Sr. Document Controller – Prodair Airproducts | Dec 2022 – Present</p>
-      <ul>
-        <li>Managed OpenText/Aconex document systems across multi-billion-dollar projects</li>
-        <li>Led UAT, audits, stakeholder engagement, and global document strategy execution</li>
-      </ul>
-      <p class="job-title">Procurement Manager – BlinkIt | Dec 2021 – Jul 2022</p>
-      <ul>
-        <li>Achieved 15% cost savings through strategic vendor management</li>
-      </ul>
-      <p class="job-title">Deputy Manager – Adani Green | Oct 2021 – Dec 2021</p>
-      <ul><li>Delivered INR 4.8 Cr in cost savings through O&M procurement</li></ul>
-      <p class="job-title">Supply Chain Coordinator – SB Energy | Oct 2017 – Oct 2021</p>
-      <ul><li>Managed procurement lifecycle and ensured full regulatory compliance</li></ul>
-      <p class="job-title">Senior Document Controller – Fluor Daniel | Aug 2011 – Sep 2017</p>
-      <ul><li>Directed document control for large infrastructure projects with ISO compliance</li></ul>
-      <p class="job-title">Document Controller – Alstom Projects | Apr 2008 – Jul 2011</p>
-      <ul><li>Optimized document access and developed MIS reporting systems</li></ul>
+      
+      <div class="job">
+        <div class="job-title-container">
+            <span class="job-title">Sr. Document Controller</span>
+            <button class="expand-button" onclick="toggleExperience(this)" aria-expanded="false" aria-controls="job1-details">Expand</button>
+        </div>
+        <p class="job-company-date">Prodair Airproducts, Pune & Vadodara | Dec 2022 – Present</p>
+        <div class="collapsible-content job-details" id="job1-details">
+          <ul>
+            <li>Managed enterprise-wide document systems (OpenText, Aconex), ensuring integrity, accessibility, and compliance across all projects.</li>
+            <li>Owned the end-to-end lifecycle management of all project documents, from receipt and registration to distribution, quality assurance, and archiving, consistently ensuring compliance with stringent project standards.</li>
+            <li>Directed, mentored, and trained teams of document controllers, strategically optimizing task allocation and cultivating rigorous adherence to best practices.</li>
+            <li>Acted as the central point of contact for all document control inquiries, critically facilitating seamless and efficient information exchange among diverse internal and external stakeholders.</li>
+            <li>Pioneered the development and implementation of enhanced document control procedures and workflows, significantly boosting operational efficiency and guaranteeing strict compliance with company policies and industry regulations.</li>
+            <li>Orchestrated comprehensive preparations for internal and external audits, effectively demonstrating robust document control practices and ensuring unwavering regulatory compliance.</li>
+            <li>Diligently maintained accurate document registers and transmittals, providing critical real-time tracking of document status and location.</li>
+            <li>Orchestrated and managed all User Acceptance Testing (UAT) phases for new or enhanced document management systems and related tools.</li>
+            <li>Independently developed comprehensive UAT test plans, scenarios, and scripts, rigorously validating system functionality against defined business requirements.</li>
+            <li>Spearheaded the coordination of UAT activities with cross-functional teams and end-users, streamlining feedback collection and accelerating issue resolution.</li>
+            <li>Thoroughly documented UAT results, proactively identified defects, and closely collaborated with development teams to ensure timely fixes and successful retesting.</li>
+            <li>Delivered comprehensive training and ongoing support to UAT participants, ensuring a clear and thorough understanding of testing objectives and procedures.</li>
+            <li>Played a pivotal role in defining and executing the global vision, strategy, and roadmap for Document Control, ensuring seamless alignment of initiatives with overarching business objectives.</li>
+            <li>Led the design, standardization, and optimization of global business processes, consistently achieving improved efficiency and consistency across the organization.</li>
+            <li>Actively contributed to defining critical requirements, prioritizing strategic enhancements, and overseeing their successful deployment and ongoing maintenance.</li>
+            <li>Proactively engaged with global stakeholders on a regular basis to meticulously gather requirements, build crucial consensus, and drive the successful adoption of new processes and system implementations.</li>
+            <li>Drove key aspects of comprehensive change management initiatives, encompassing the development of effective communication strategies, robust training programs, and continuous ongoing support for global users.</li>
+            <li>Instrumental in defining and rigorously monitoring key performance indicators (KPIs), proactively identifying deviations and implementing timely corrective actions to ensure optimal functional performance.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="job">
+         <div class="job-title-container">
+            <span class="job-title">Procurement Manager</span>
+            <button class="expand-button" onclick="toggleExperience(this)" aria-expanded="false" aria-controls="job2-details">Expand</button>
+        </div>
+        <p class="job-company-date">Hands On Trades Private Limited (BlinkIt), Gurgaon | Dec 2021 – Jul 2022</p>
+        <div class="collapsible-content job-details" id="job2-details">
+          <ul>
+            <li>Developed procurement strategies that saved 15% in costs by negotiating better vendor contracts.</li>
+            <li>Managed procurement operations for 50+ team members, streamlining supply chain efficiency.</li>
+            <li>Led the creation of a real-time issue resolution control tower, reducing downtime and improving service levels.</li>
+            <li>Optimized vendor onboarding and cut procurement lead time by 20%.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="job">
+        <div class="job-title-container">
+            <span class="job-title">Deputy Manager (Techno-Commercial)</span>
+            <button class="expand-button" onclick="toggleExperience(this)" aria-expanded="false" aria-controls="job3-details">Expand</button>
+        </div>
+        <p class="job-company-date">Adani Green Energy Ltd., Ahmedabad | Oct 2021 – Dec 2021</p>
+        <div class="collapsible-content job-details" id="job3-details">
+          <ul>
+            <li>Executed procurement for O&M services, ensuring seamless supply chain operations.</li>
+            <li>Implemented cost-saving strategies that resulted in INR 4.8 Crore in savings.</li>
+            <li>Optimized vendor management in SAP and Ariba, improving contract turnaround efficiency.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="job">
+        <div class="job-title-container">
+            <span class="job-title">Supply Chain Coordinator & Procurement Executive</span>
+            <button class="expand-button" onclick="toggleExperience(this)" aria-expanded="false" aria-controls="job4-details">Expand</button>
+        </div>
+        <p class="job-company-date">SB Energy Pvt. Ltd., Delhi | Oct 2017 – Oct 2021</p>
+        <div class="collapsible-content job-details" id="job4-details">
+          <ul>
+            <li>Managed end-to-end procurement cycle, from RFP issuance to contract execution.</li>
+            <li>Designed vendor evaluation frameworks, improving procurement efficiency by 25%.</li>
+            <li>Led internal audits and ensured 100% compliance with company policies and external regulations.</li>
+            <li>Oversaw a team of 16, mentoring staff and streamlining procurement workflows.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="job">
+        <div class="job-title-container">
+            <span class="job-title">Senior Document Controller</span>
+            <button class="expand-button" onclick="toggleExperience(this)" aria-expanded="false" aria-controls="job5-details">Expand</button>
+        </div>
+        <p class="job-company-date">Fluor Daniel India Pvt. Ltd., Gurugram | Aug 2011 – Sep 2017</p>
+        <div class="collapsible-content job-details" id="job5-details">
+          <ul>
+            <li>Directed document control for large-scale infrastructure and energy projects.</li>
+            <li>Implemented document tracking systems, reducing project delays by 20%.</li>
+            <li>Ensured ISO compliance, improving process efficiency and reducing non-conformance reports.</li>
+            <li>Developed standardized templates and workflows, accelerating approval processes.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="job">
+        <div class="job-title-container">
+            <span class="job-title">Document Controller</span>
+            <button class="expand-button" onclick="toggleExperience(this)" aria-expanded="false" aria-controls="job6-details">Expand</button>
+        </div>
+        <p class="job-company-date">Alstom Projects India Ltd., Noida | Apr 2008 – Jul 2011</p>
+        <div class="collapsible-content job-details" id="job6-details">
+          <ul>
+            <li>Managed tendering and engineering documentation, ensuring accuracy and accessibility.</li>
+            <li>Developed MIS reporting systems, improving data visibility and decision-making.</li>
+            <li>Optimized document access control, enhancing data security and retrieval efficiency.</li>
+          </ul>
+        </div>
+      </div>
     </section>
 
     <section class="projects">
       <h2>Key Projects</h2>
       <ul>
-        <li>NEOM, Saudi Arabia – Led document control for futuristic city development</li>
-        <li>Reliance J3 Refinery Expansion – Oversaw compliance for $10B refinery expansion</li>
-        <li>NTPC600 – Ensured 100% regulatory adherence for 600MW solar project</li>
+        <li>✅ NEOM, Saudi Arabia – Led document control for a futuristic city development, ensuring compliance with international standards.</li>
+        <li>✅ Blinkit Store Operations (Delhi NCR) – Managed digital documentation for store operations, procurement, and compliance.</li>
+        <li>✅ Adani Green – Site Transportation & Fuel Management – Developed a document management system for fuel usage and vehicle logs.</li>
+        <li>✅ AP350 (350MW Solar Plant) – Implemented document workflows for vendor contracts, ensuring seamless approvals.</li>
+        <li>✅ Reliance Gasification (J3 Refinery Expansion) – Oversaw documentation compliance for a $10B refinery expansion.</li>
+        <li>✅ NTPC600 (600MW Solar Plant) – Established compliance tracking, ensuring 100% regulatory adherence.</li>
+        <li>✅ Kearl Oil Sands Expansion – Developed ISO-compliant document control systems for an oil sands project.</li>
       </ul>
     </section>
 
     <section class="education">
       <h2>Education</h2>
-      <p>BBA, Sikkim Manipal University (Distance Learning), 2019</p>
+      <p>🎓 BBA, Sikkim Manipal University (Distance Learning), 2019</p>
     </section>
   </main>
+
   <footer>
-    &copy; 2025 Deepesh Arya. All rights reserved.
+    &copy; <span id="currentYear"></span> Deepesh Arya. All rights reserved.
   </footer>
+
+  <script>
+    // Function to toggle the display of job details
+    function toggleExperience(button) {
+      // Find the collapsible content div, which is the next sibling of the button's parent container
+      const content = button.closest('.job').querySelector('.collapsible-content');
+      const isExpanded = button.getAttribute('aria-expanded') === 'true';
+
+      if (isExpanded) {
+        content.style.display = "none";
+        button.textContent = "Expand";
+        button.setAttribute('aria-expanded', 'false');
+        content.classList.remove('active');
+      } else {
+        content.style.display = "block";
+        button.textContent = "Collapse";
+        button.setAttribute('aria-expanded', 'true');
+        content.classList.add('active');
+      }
+    }
+
+    // Set the current year in the footer
+    document.getElementById('currentYear').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
